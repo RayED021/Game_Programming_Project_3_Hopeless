@@ -16,7 +16,7 @@ public class PlayerMovement : MonoBehaviour
     public Animator animator;
     private void PlayWalk()
     {
-        animator.SetTrigger("goWalk");
+        animator.SetBool("goWalk", true);
     }
     private void PlayJump()
     {
@@ -28,7 +28,7 @@ public class PlayerMovement : MonoBehaviour
     {
         // Ambil komponen rigidbody dari objek player
         rb = GetComponent<Rigidbody2D>();
-
+        animator.GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
@@ -63,6 +63,10 @@ public class PlayerMovement : MonoBehaviour
             else if (horizontalInput != 0f)
             {
                 PlayWalk();
+            }
+            else if(horizontalInput == 0)
+            {
+                animator.SetBool("goWalk", false);
             }
 
         }
