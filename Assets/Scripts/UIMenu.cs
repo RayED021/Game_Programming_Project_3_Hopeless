@@ -21,7 +21,7 @@ public class UIMenu : MonoBehaviour
     public int levelCurrent;
     public Button[] levelButtons;
 
-    public int sceneIndex = 0;
+    public int sceneIndex = -1;
     
     private void AddChangeSceneListeners()
     {
